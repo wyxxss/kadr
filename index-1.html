@@ -1,0 +1,101 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Kadr</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script><script src="config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Onest:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--mu:rgba(242,244,251,.7);--g:rgba(255,255,255,.1);--b:rgba(255,255,255,.18);--c1:#2150ff;--c2:#0b1a70}
+body[data-t=s]{--c1:#7a2cff;--c2:#1b0f55}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#05070f;color:#f2f4fb;font:500 14px Onest,sans-serif;overflow:hidden}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}button:active{transform:scale(.93)}
+#bg{position:fixed;inset:0;background:linear-gradient(180deg,var(--c1),var(--c2) 30%,#05070f 64%)}
+#v{position:fixed;inset:0;overflow-y:auto;padding:calc(var(--tg-content-safe-area-inset-top,0px) + var(--tg-safe-area-inset-top,0px) + 30px) 22px 130px;scrollbar-width:none}
+.U{font-family:Unbounded,Onest,sans-serif;font-weight:800;letter-spacing:-.04em}
+h1{font-size:33px;line-height:1.12}h1 span{color:rgba(242,244,251,.6)}
+.g{background:var(--g);border:1px solid var(--b);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.m{color:var(--mu);font-size:13px}.t{font-size:16px;font-weight:700;margin:24px 0 12px}
+.cv{border-radius:22px;flex:none;position:relative;overflow:hidden;box-shadow:0 16px 36px -16px #000;background-size:cover}
+.cv::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.5))}
+.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.cv.ok b{display:none}.cv b{position:absolute;left:10px;right:8px;bottom:10px;z-index:1;font:800 11px/1.15 Unbounded,sans-serif;letter-spacing:-.04em}
+.pr{height:44px;padding:0 22px;border-radius:99px;background:#fff;color:#0b1a70;font-weight:700}
+.row{display:flex;gap:12px;overflow-x:auto;margin:0 -22px;padding:0 22px;scrollbar-width:none}
+.c3{width:104px;flex:none}.c3 .cv{width:104px;height:150px}.c3 p{margin-top:8px;font-size:13px;font-weight:600}
+.bar{height:6px;border-radius:9px;background:rgba(255,255,255,.18);margin-top:12px;overflow:hidden}.bar i{display:block;height:100%;background:#fff;border-radius:9px;transition:width .6s cubic-bezier(.2,.9,.3,1)}
+.hero{display:flex;gap:16px;align-items:center;padding:14px;border-radius:34px;margin-top:24px}
+.st{display:flex;gap:12px;margin-top:14px}.st>div{flex:1;padding:16px;border-radius:28px}.st b{display:block;font-size:30px;margin-top:8px}
+.rw{display:flex;gap:14px;align-items:center;padding:12px;border-radius:28px;margin-bottom:12px;width:100%;text-align:left}
+.rw>div{flex:1;min-width:0}.pl{padding:8px 12px;border-radius:99px;background:rgba(255,255,255,.14);font-size:12px;font-weight:600;white-space:nowrap}
+.plus{position:absolute;right:22px;top:calc(var(--tg-content-safe-area-inset-top,0px) + var(--tg-safe-area-inset-top,0px) + 30px);width:48px;height:48px;border-radius:50%;font-size:26px}
+#v>*{animation:up .6s cubic-bezier(.2,.9,.3,1) backwards}#v>*:nth-child(2){animation-delay:.06s}#v>*:nth-child(3){animation-delay:.12s}#v>*:nth-child(4){animation-delay:.18s}#v>*:nth-child(n+5){animation-delay:.24s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+nav{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:6px;padding:6px;border-radius:99px;z-index:5}
+nav button{width:64px;height:50px;border-radius:99px;color:#c9cfe6;transition:all .4s cubic-bezier(.3,1.3,.5,1)}nav button.on{background:rgba(255,255,255,.22);color:#fff}
+nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9}
+.ov{position:fixed;inset:0;z-index:10;pointer-events:none}.ov.o{pointer-events:auto}#sh{z-index:11}
+.dim{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:opacity .4s}.o .dim{opacity:1}
+.pane{position:absolute;left:0;right:0;bottom:0;max-height:92%;overflow:auto;border-radius:34px 34px 0 0;padding:22px 22px calc(26px + env(safe-area-inset-bottom,0px));background:rgba(14,17,30,.9);transform:translateY(105%);transition:transform .55s cubic-bezier(.2,.9,.25,1)}.o .pane{transform:none}
+#se .pane{height:92%;max-height:none}
+.in{width:100%;height:52px;border-radius:99px;border:1px solid var(--b);background:var(--g);color:#fff;padding:0 20px;font:600 16px Onest;outline:0;margin-bottom:16px}
+.chips{display:flex;gap:8px;margin-top:16px}.chips button{flex:1;height:44px;border-radius:99px;background:var(--g);font-weight:600}.chips .on{background:#fff;color:#0b1a70}
+.rd{position:relative;width:64px;height:64px;border-radius:50%;background:#fff;color:#0b1a70;font:800 20px Unbounded}
+.bars{display:flex;gap:7px;align-items:flex-end;height:64px;margin-top:18px}.bars i{flex:1;border-radius:9px;background:linear-gradient(#fff,#6f93ff)}
+.av{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#fff,#6f93ff) ;padding:3px;flex:none}.av img,.av div{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #0a1560;display:flex;align-items:center;justify-content:center;font-size:30px;background:#1e293b}
+</style></head><body data-t="h"><div id="bg"></div><main id="v"></main>
+<nav class="g"><button data-a="tab" data-v="h" aria-label="Сегодня"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg></button><button data-a="tab" data-v="s" aria-label="Расписание"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></button><button data-a="tab" data-v="p" aria-label="Профиль"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></button></nav>
+<div class="ov" id="sh"><div class="dim" data-a="x"></div><div class="pane g" id="shp"></div></div>
+<div class="ov" id="se"><div class="dim" data-a="x"></div><div class="pane g"><input class="in" id="q" placeholder="Название аниме или сериала" autocomplete="off"><div id="sr"></div></div></div>
+<script>
+const T=window.Telegram&&Telegram.WebApp,$=s=>document.querySelector(s),CF=window.CFG||{};
+if(T){T.ready();T.expand();try{T.setHeaderColor('#05070f');T.setBackgroundColor('#05070f')}catch(e){}}
+const hap=()=>{try{T.HapticFeedback.impactOccurred('light')}catch(e){}};
+const U=(T&&T.initDataUnsafe&&T.initDataUnsafe.user)||{first_name:'Друг'};
+const cs=T&&T.CloudStorage;
+const S={get:k=>new Promise(r=>cs?cs.getItem(k,(e,v)=>r(v||'')):r(localStorage.getItem(k)||'')),set:(k,v)=>new Promise(r=>cs?cs.setItem(k,v,()=>r()):(localStorage.setItem(k,v),r())),del:k=>new Promise(r=>cs?cs.removeItem(k,()=>r()):(localStorage.removeItem(k),r()))};
+let items={},idx=[],days=[],pool={},nx={},recs=[],tab='h',cur=null;
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const P=[['#f97316','#7c1d6f'],['#1d4ed8','#0b1030'],['#16a34a','#064e3b'],['#7c3aed','#0f172a'],['#ec4899','#4c1d95'],['#06b6d4','#1e3a8a']];
+const px=u=>'https://wsrv.nl/?w=400&url='+encodeURIComponent(u);
+const cv=(it,st)=>{const p=P[[...it.id].reduce((a,c)=>a+c.charCodeAt(0),0)%6];return `<div class="cv" style="${st};background:linear-gradient(155deg,${p[0]},${p[1]})">${it.i?`<img src="${esc(it.i)}" alt="" referrerpolicy="no-referrer" onload="this.parentNode.classList.add('ok')" onerror="if(!this.dataset.r){this.dataset.r=1;this.src=px(this.getAttribute('src'))}else this.remove()">`:''}<b>${esc(it.n)}</b></div>`};
+/* API */
+const SH='https://shikimori.one',sj=p=>fetch(SH+'/api'+p).then(r=>r.json());
+const tj=p=>fetch(`https://api.themoviedb.org/3${p}${p.includes('?')?'&':'?'}api_key=${CF.TMDB}&language=ru-RU`).then(r=>r.json());
+const cl=h=>(h||'').replace(/<[^>]*>|\[[^\]]*\]/g,'').slice(0,220);
+const fa=a=>({id:'a'+a.id,n:a.russian||a.name,i:a.image&&a.image.original?SH+a.image.original:'',e:a.episodes||a.episodes_aired||0,d:cl(a.description_html||a.description)});
+const ft=t=>({id:'t'+t.id,n:t.name,i:t.poster_path?'https://image.tmdb.org/t/p/w342'+t.poster_path:'',e:t.number_of_episodes||0,d:(t.overview||'').slice(0,220)});
+const num=id=>id.slice(1);
+async function search(q){const e=encodeURIComponent(q);const [a,t]=await Promise.all([sj(`/animes?search=${e}&limit=8&order=popularity`).catch(()=>[]),CF.TMDB?tj(`/search/tv?query=${e}`).then(r=>r.results||[]).catch(()=>[]):[]]);return[...a.map(fa),...t.slice(0,8).map(ft)]}
+async function info(it){try{if(it.id[0]=='a'){const d=await sj('/animes/'+num(it.id));Object.assign(it,fa(d));nx[it.id]=d.next_episode_at?{t:Date.parse(d.next_episode_at),ep:(d.episodes_aired||0)+1,tm:1}:null}else{const d=await tj('/tv/'+num(it.id));Object.assign(it,ft(d));const n=d.next_episode_to_air;nx[it.id]=n?{t:Date.parse(n.air_date),ep:n.episode_number}:null}}catch(e){}}
+async function loadRecs(){const b=Object.values(items).filter(x=>x.w>0).sort((a,b)=>b.u-a.u)[0];if(!b)return;try{const r=b.id[0]=='a'?(await sj(`/animes/${num(b.id)}/similar`)).map(fa):(await tj(`/tv/${num(b.id)}/recommendations`)).results.map(ft);recs=r.filter(x=>!items[x.id]).slice(0,10);recs.forEach(x=>pool[x.id]=x);if(tab=='h')draw()}catch(e){}}
+/* storage */
+const save=it=>{items[it.id]=it;if(!idx.includes(it.id))idx.push(it.id);S.set('i_'+it.id,JSON.stringify({id:it.id,n:it.n,i:it.i,e:it.e,w:it.w,s:it.s,d:it.d,u:it.u}));S.set('idx',idx.join(','))};
+async function boot(){idx=(await S.get('idx')).split(',').filter(Boolean);days=(await S.get('days')).split(',').filter(Boolean);await Promise.all(idx.map(async id=>{try{items[id]=JSON.parse(await S.get('i_'+id))}catch(e){}}));draw();Object.values(items).filter(x=>x.s=='watch').forEach(x=>info(x).then(()=>{if(tab=='s'||tab=='h')draw()}));loadRecs()}
+/* helpers */
+const L=s=>Object.values(items).filter(x=>x.s==s).sort((a,b)=>b.u-a.u),dk=d=>d.toISOString().slice(0,10);
+const hrs=()=>Object.values(items).reduce((a,x)=>a+x.w*(x.id[0]=='a'?24:45),0)/60;
+const rel=t=>{const m=Math.round((t-Date.now())/6e4);return m<0?'вышла':m<60?`через ${m} мин`:m<1440?`через ${Math.round(m/60)} ч`:new Date(t).toLocaleDateString('ru',{weekday:'short',day:'numeric',month:'short'})};
+const tm=n=>n.tm?new Date(n.t).toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'}):new Date(n.t).toLocaleDateString('ru',{day:'numeric',month:'short'});
+const card=x=>`<button class="c3" data-a="open" data-v="${x.id}" style="text-align:left">${cv(x,'')}<p>${esc(x.n)}</p></button>`;
+/* views */
+function home(){const w=L('watch'),n=w[0];return `<button class="plus g" data-a="find" aria-label="Добавить">+</button><h1 class="U">Привет, ${esc(U.first_name)}.<br><span>Что смотрим сегодня?</span></h1>`+
+(n?`<section class="hero g">${cv(n,'width:92px;height:132px;border-radius:24px')}<div><div class="m">Следующая серия</div><div class="U" style="font-size:17px;line-height:1.15;margin:6px 0 4px">${esc(n.n)}</div><div class="m">Серия ${n.w+1}${n.e?' из '+n.e:''}</div><button class="pr" style="margin-top:12px" data-a="open" data-v="${n.id}">Продолжить</button></div></section><div class="t">Сейчас смотрю</div><div class="row">${w.map(card).join('')}</div>`:`<section class="hero g" style="display:block;padding:22px"><div class="U" style="font-size:20px">Пока пусто</div><div class="m" style="margin:8px 0 16px">Найди аниме или сериал и добавь в список</div><button class="pr" data-a="find">Найти тайтл</button></section>`)+
+(recs.length?`<div class="t">Тебе понравится</div><div class="row">${recs.map(card).join('')}</div>`:'')+
+`<div class="st"><div class="g"><span class="m">Часов в кадре</span><b class="U">${hrs().toFixed(1)}</b></div><div class="g"><span class="m">Дней подряд</span><b class="U">${streak()}</b></div></div>`}
+function streak(){let n=0,d=new Date();if(!days.includes(dk(d)))d.setDate(d.getDate()-1);while(days.includes(dk(d))){n++;d.setDate(d.getDate()-1)}return n}
+function sched(){const r=L('watch').filter(x=>nx[x.id]).sort((a,b)=>nx[a.id].t-nx[b.id].t);return `<h1 class="U">Расписание<br><span>выходов серий</span></h1><div style="margin-top:24px">`+(r.length?r.map(x=>{const n=nx[x.id];return `<button class="rw g" data-a="open" data-v="${x.id}">${cv(x,'width:54px;height:76px;border-radius:16px')}<div><div class="U" style="font-size:18px">${tm(n)}</div><div style="font-weight:700;font-size:15px;margin-top:5px">${esc(x.n)}</div><div class="m" style="margin-top:2px">Серия ${n.ep}</div></div><span class="pl">${rel(n.t)}</span></button>`}).join(''):`<div class="m">Нет ближайших выходов. Добавь онгоинги в «Смотрю».</div>`)+`</div>`}
+function prof(){const a=Object.values(items),ep=a.reduce((s,x)=>s+x.w,0),c=[...Array(7)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()-6+i);return days.filter(x=>x==dk(d)).length}),mx=Math.max(1,...c),d=L('done');
+return `<div style="display:flex;align-items:center;gap:16px"><div class="av">${U.photo_url?`<img src="${esc(U.photo_url)}" alt="">`:`<div class="U">${esc((U.first_name||'?')[0])}</div>`}</div><div><div class="U" style="font-size:23px;line-height:1.1">${esc([U.first_name,U.last_name].filter(Boolean).join(' '))}</div><div class="m" style="margin-top:6px">${U.username?'@'+esc(U.username):''}</div></div></div>
+<section class="g" style="margin-top:24px;padding:20px;border-radius:32px"><div class="m">Всего в кадре</div><div style="margin-top:6px"><span class="U" style="font-size:54px;line-height:1">${Math.round(hrs())}</span> <b style="font-size:18px">часов</b></div><div class="bars">${c.map(v=>`<i style="height:${8+v/mx*56}px"></i>`).join('')}</div><div style="display:flex;justify-content:space-between;margin-top:14px" class="m"><span>${a.length} тайтлов</span><span>${ep} серий</span></div></section>`+(d.length?`<div class="t">Завершено</div><div class="row">${d.map(card).join('')}</div>`:'')}
+function draw(){$('#v').innerHTML={h:home,s:sched,p:prof}[tab]();document.body.dataset.t=tab;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==tab))}
+/* sheet */
+function sheet(){const it=cur,l=items[it.id],o=l||it,b=`<div style="display:flex;gap:16px">${cv(o,'width:96px;height:140px;border-radius:24px')}<div><div class="m">${o.id[0]=='a'?'Аниме':'Сериал'}</div><div class="U" style="font-size:24px;line-height:1.1;margin-top:6px">${esc(o.n)}</div></div></div><p class="m" style="margin-top:14px;line-height:1.5">${esc(o.d)||'Описание загружается…'}</p>`;
+$('#shp').innerHTML=l?`${b}<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px"><div><div class="m">Просмотрено</div><div class="U" style="font-size:40px">${l.w}<span class="m" style="font-size:20px"> / ${l.e||'?'}</span></div></div><button class="rd" data-a="inc" data-v="1">+1</button></div><div class="bar"><i style="width:${l.e?l.w/l.e*100:0}%"></i></div><div class="chips"><button data-a="inc" data-v="-1">−1 серия</button>${[['watch','Смотрю'],['plan','В планах'],['done','Готово']].map(s=>`<button class="${l.s==s[0]?'on':''}" data-a="set" data-v="${s[0]}">${s[1]}</button>`).join('')}</div><button class="m" style="margin:16px auto 0;display:block" data-a="del">Удалить из списка</button>`:`${b}<div class="chips"><button data-a="add" data-v="plan">В планы</button><button class="on" data-a="add" data-v="watch">Смотрю</button></div>`}
+const opn=(id,v)=>{$('#'+id).classList.toggle('o',v)};
+const act={tab:v=>{tab=v;draw();$('#v').scrollTop=0},x:()=>{opn('sh',0);opn('se',0);draw()},find:()=>{opn('se',1);setTimeout(()=>$('#q').focus(),400)},
+open:id=>{cur=items[id]||pool[id];if(!cur)return;sheet();opn('sh',1);if(!cur.d||!cur.e)info(cur).then(()=>{items[cur.id]&&save(cur);sheet()})},
+add:s=>{cur.s=s;cur.w=0;cur.u=Date.now();save(cur);info(cur).then(()=>save(cur));opn('se',0);sheet();hap();recs=recs.filter(x=>x.id!=cur.id)},
+inc:d=>{const x=cur;x.w=Math.max(0,Math.min(x.e||999,x.w+ +d));if(x.e&&x.w>=x.e)x.s='done';else if(x.w>0&&x.s!='watch')x.s='watch';x.u=Date.now();if(d>0){days.push(dk(new Date()));days=days.slice(-300);S.set('days',days.join(','))}save(x);sheet();hap()},
+set:s=>{cur.s=s;if(s=='done'&&cur.e)cur.w=cur.e;save(cur);sheet();hap()},
+del:()=>{delete items[cur.id];idx=idx.filter(i=>i!=cur.id);S.del('i_'+cur.id);S.set('idx',idx.join(','));act.x()}};
+document.addEventListener('click',e=>{const x=e.target.closest('[data-a]');if(x)act[x.dataset.a](x.dataset.v)});
+let tmr;$('#q').addEventListener('input',e=>{clearTimeout(tmr);const q=e.target.value.trim();if(q.length<2){$('#sr').innerHTML='';return}tmr=setTimeout(async()=>{$('#sr').innerHTML='<div class="m">Ищу…</div>';const r=await search(q);r.forEach(x=>pool[x.id]=items[x.id]||x);$('#sr').innerHTML=r.length?r.map(x=>`<button class="rw g" data-a="open" data-v="${x.id}">${cv(x,'width:54px;height:76px;border-radius:16px')}<div><div style="font-weight:700;font-size:15px">${esc(x.n)}</div><div class="m" style="margin-top:4px">${x.id[0]=='a'?'Аниме':'Сериал'}${x.e?' · '+x.e+' сер.':''}</div></div></button>`).join(''):'<div class="m">Ничего не найдено</div>'},350)});
+boot();
+</script></body></html>
